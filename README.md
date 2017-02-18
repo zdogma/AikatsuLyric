@@ -2,8 +2,13 @@ AikatsuLyric
 ===
 
 ## Description
-アイカツの歌詞を確認できる iOS アプリ。
+アイカツの歌詞を確認できる iOS アプリ。  
 完全に個人用のため、配布はなし。
+
+| 曲一覧 | 曲詳細 |
+| ------ | ------ |
+| ![image](https://cloud.githubusercontent.com/assets/1973683/23093353/e8d6bdee-f623-11e6-9e3c-ed0f0d49478e.png) | ![image](https://cloud.githubusercontent.com/assets/1973683/23093356/f2c642ca-f623-11e6-8a44-5736ec57e7e2.png) |
+
 
 ## Install
 ```
