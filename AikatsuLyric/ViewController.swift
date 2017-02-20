@@ -47,7 +47,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
         // サムネイル画像
         if !data!.thumbnail_url.isEmpty {
             let url = URL(string: data!.thumbnail_url)
-            self.songThumbnailImage.kf.setImage(with: url)
+            let placeholderImage = UIImage(named: "NoImage")
+            self.songThumbnailImage.kf.setImage(with: url, placeholder: placeholderImage)
         }
         
         // Youtube動画
