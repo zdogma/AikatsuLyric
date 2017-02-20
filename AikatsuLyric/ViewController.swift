@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: UIViewController, UIWebViewDelegate {
 
@@ -31,7 +32,6 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 
         self.automaticallyAdjustsScrollViewInsets = false
 
@@ -46,18 +46,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
         
         // サムネイル画像
         if !data!.thumbnail_url.isEmpty {
-            let configuration = URLSessionConfiguration.default
-            let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
-            
-            let url = NSURL(string: data!.thumbnail_url)
-            let request = NSURLRequest(url: url as! URL)
-            
-            session.dataTask(with: request as URLRequest, completionHandler: {
-                (data, response, err) in
-                
-                let image = UIImage(data: data!)
-                self.songThumbnailImage.image = image
-            })
+            let url = URL(string: data!.thumbnail_url)
+            self.songThumbnailImage.kf.setImage(with: url)
         }
         
         // Youtube動画

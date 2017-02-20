@@ -7,4 +7,5 @@ target 'AikatsuLyric' do
 
   # Pods for AikatsuLyric
   pod 'SwiftyJSON', '~> 3.0.0'
+  pod 'Kingfisher', '~> 3.0'
 end
