@@ -33,9 +33,15 @@ class SongListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let song = songs[(indexPath as NSIndexPath).row]
-        
+
+        let url = URL(string: String(describing: song["thumbnail_url"]))
+        let placeholderImage = UIImage(named: "NoImage")
+
+        tableView.rowHeight = 60
+
         cell.textLabel?.text = String(describing: song["title"])
         cell.detailTextLabel?.text = String(describing: song["series"]) + " - " + String(describing: song["scene"])
+        cell.imageView?.kf.setImage(with: url, placeholder: placeholderImage)
         
         return cell
     }

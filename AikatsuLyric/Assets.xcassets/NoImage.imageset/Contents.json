@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ichigo_icon.png",
+      "filename" : "aikatsu_no_image.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ichigo_icon-1.png",
+      "filename" : "aikatsu_no_image-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ichigo_icon-2.png",
+      "filename" : "aikatsu_no_image-2.png",
       "scale" : "3x"
     }
   ],
