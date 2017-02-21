@@ -1,15 +1,18 @@
 PODS:
   - Kingfisher (3.4.0)
+  - SwiftLint (0.16.1)
   - SwiftyJSON (3.0.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 3.0)
+  - SwiftLint
   - SwiftyJSON (~> 3.0.0)
 
 SPEC CHECKSUMS:
   Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
+  SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
 
-PODFILE CHECKSUM: 5b9ca8858dc02bf58f01528c7943c6c99f869fc4
+PODFILE CHECKSUM: eaec670e7ca619a537757c6778a23d4ee0f702df
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.0.1

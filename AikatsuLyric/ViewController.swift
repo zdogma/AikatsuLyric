@@ -53,13 +53,13 @@ class ViewController: UIViewController, UIWebViewDelegate {
         
         // Youtube動画
         if !data!.embed_movie_src.isEmpty {
-            let url = NSURL(string: data!.embed_movie_src)
-            let request = NSURLRequest(url: url! as URL)
+            let url = URL(string: data!.embed_movie_src)
+            let request = URLRequest(url: url! as URL)
             
             self.youtubeMovieWebView.loadRequest(request as URLRequest)
         }
     }
-    private func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    internal func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         activityIndicator.startAnimating()
         return true
     }
