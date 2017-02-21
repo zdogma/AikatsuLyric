@@ -6,8 +6,8 @@
 //  Copyright © 2017年 Tomohiro Zoda. All rights reserved.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 class ViewController: UIViewController, UIWebViewDelegate {
 
@@ -43,31 +43,35 @@ class ViewController: UIViewController, UIWebViewDelegate {
         seriesLabel.text = data!.series
         sceneLabel.text = data!.scene
         singerLabel.text = data!.singer
-        
+
         // サムネイル画像
         if !data!.thumbnail_url.isEmpty {
             let url = URL(string: data!.thumbnail_url)
-            let placeholderImage = UIImage(named: "NoImage")
+            let placeholderImage = #imageLiteral(resourceName: "NoImage")
             self.songThumbnailImage.kf.setImage(with: url, placeholder: placeholderImage)
         }
-        
+
         // Youtube動画
         if !data!.embed_movie_src.isEmpty {
             let url = URL(string: data!.embed_movie_src)
             let request = URLRequest(url: url! as URL)
-            
+
             self.youtubeMovieWebView.loadRequest(request as URLRequest)
         }
     }
-    internal func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    internal func webView(
+        _ webView: UIWebView,
+        shouldStartLoadWith request: URLRequest,
+        navigationType: UIWebViewNavigationType
+    ) -> Bool {
         activityIndicator.startAnimating()
         return true
     }
-    
+
     func webViewDidFinishLoad(_ webView: UIWebView) {
         activityIndicator.stopAnimating()
     }
-    
+
     func webViewDidStartLoad(_ webView: UIWebView) {
         activityIndicator.startAnimating()
     }
@@ -77,4 +81,3 @@ class ViewController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 }
-

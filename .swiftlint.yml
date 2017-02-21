@@ -1,0 +1,44 @@
+disabled_rules:
+  - todo
+opt_in_rules:
+  - closure_end_indentation
+  - closure_spacing
+  - conditional_returns_on_newline
+  - empty_count
+  - explicit_init
+  - force_unwrapping
+  - nimble_operator
+  - number_separator
+  - object_literal
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_nil_coalescing
+  - sorted_imports
+  - switch_case_on_newline
+included:
+excluded:
+  - Carthage
+  - Pods
+  - Source/ExcludedFolder
+  - Source/ExcludedFile.swift
+force_cast:
+  severity: warning
+force_try:
+  severity: warning
+line_length: 120
+type_body_length:
+  - 300
+  - 400
+file_length:
+  warning: 500
+  error: 1200
+type_name:
+  min_length: 4 # only warning
+  max_length: # warning and error
+    warning: 40
+    error: 50
+identifier_name:
+  excluded:
+    - id
+reporter: "xcode"

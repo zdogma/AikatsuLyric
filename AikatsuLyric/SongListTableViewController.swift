@@ -6,13 +6,13 @@
 //  Copyright © 2017年 Tomohiro Zoda. All rights reserved.
 //
 
-import UIKit
 import SwiftyJSON
+import UIKit
 
 class SongListTableViewController: UITableViewController {
 
     var songs: JSON = []
-    
+
     // MARK: - Table view data source
 
     override func viewDidLoad() {
@@ -20,7 +20,7 @@ class SongListTableViewController: UITableViewController {
 
         songs = loadSongsJSON()!
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -29,17 +29,17 @@ class SongListTableViewController: UITableViewController {
         return songs.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let song = songs[(indexPath as NSIndexPath).row]
-        
+        let detailText = String(describing: song["series"]) + " - " + String(describing: song["scene"])
+
         cell.textLabel?.text = String(describing: song["title"])
-        cell.detailTextLabel?.text = String(describing: song["series"]) + " - " + String(describing: song["scene"])
-        
+        cell.detailTextLabel?.text = detailText
+
         return cell
     }
-    
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
