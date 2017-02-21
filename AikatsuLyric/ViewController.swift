@@ -11,15 +11,7 @@ import UIKit
 
 class ViewController: UIViewController, UIWebViewDelegate {
 
-    var data: (
-        title: String,
-        text: String,
-        thumbnail_url: String,
-        series: String,
-        scene: String,
-        singer: String,
-        embed_movie_src: String
-    )?
+    var song: Song!
 
     @IBOutlet weak var songTitleLabel: UILabel!
     @IBOutlet weak var lyricTextView: UITextView!
@@ -38,24 +30,21 @@ class ViewController: UIViewController, UIWebViewDelegate {
         activityIndicator.hidesWhenStopped = true
         youtubeMovieWebView.delegate = self
 
-        songTitleLabel.text = data!.title
-        lyricTextView.text = data!.text
-        seriesLabel.text = data!.series
-        sceneLabel.text = data!.scene
-        singerLabel.text = data!.singer
+        songTitleLabel.text = song.title
+        lyricTextView.text = song.text
+        seriesLabel.text = song.series
+        sceneLabel.text = song.scene
+        singerLabel.text = song.singer
 
         // サムネイル画像
-        if !data!.thumbnail_url.isEmpty {
-            let url = URL(string: data!.thumbnail_url)
+        if let url = URL(string: song.thumbnailUrl) {
             let placeholderImage = #imageLiteral(resourceName: "NoImage")
             self.songThumbnailImage.kf.setImage(with: url, placeholder: placeholderImage)
         }
 
         // Youtube動画
-        if !data!.embed_movie_src.isEmpty {
-            let url = URL(string: data!.embed_movie_src)
-            let request = URLRequest(url: url! as URL)
-
+        if let srcUrl = URL(string: song.embedMovieSrc) {
+            let request = URLRequest(url: srcUrl)
             self.youtubeMovieWebView.loadRequest(request as URLRequest)
         }
     }
@@ -78,6 +67,5 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

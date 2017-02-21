@@ -1,6 +1,3 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
-
 target 'AikatsuLyric' do
   use_frameworks!
 
@@ -8,6 +5,8 @@ target 'AikatsuLyric' do
   pod 'SwiftyJSON', '~> 3.0.0'
   pod 'Kingfisher', '~> 3.0'
   pod 'SwiftLint'
+  pod 'ObjectMapper'
+  pod 'SCLAlertView'
 end
 
 post_install do |installer|
