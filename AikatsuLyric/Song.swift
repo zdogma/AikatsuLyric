@@ -6,7 +6,6 @@
 //  Copyright © 2017年 Tomohiro Zoda. All rights reserved.
 //
 
-//import Foundation
 import ObjectMapper
 
 struct Song: ImmutableMappable {
