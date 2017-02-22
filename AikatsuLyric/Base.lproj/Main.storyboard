@@ -108,9 +108,16 @@
                                     <constraint firstAttribute="height" constant="50" id="p3Z-E3-De8"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="stB-aF-7rD">
+                                <rect key="frame" x="144" y="527" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="stB-aF-7rD" firstAttribute="top" secondItem="ld4-8K-Fab" secondAttribute="bottom" constant="23" id="2hK-NW-x2m"/>
                             <constraint firstItem="ld4-8K-Fab" firstAttribute="top" secondItem="GdS-oV-3Cn" secondAttribute="bottom" constant="20" id="5qi-Ku-TGU"/>
                             <constraint firstItem="GdS-oV-3Cn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A4j-Fp-k4g"/>
                             <constraint firstItem="GdS-oV-3Cn" firstAttribute="top" secondItem="QWa-Lq-NIM" secondAttribute="bottom" constant="13" id="Ijf-P9-Voa"/>
@@ -124,9 +131,11 @@
                             <constraint firstItem="ld4-8K-Fab" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X6W-7l-LQj"/>
                             <constraint firstItem="wat-U1-tQP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="Xgb-bp-7tq"/>
                             <constraint firstItem="i2K-Zg-AEU" firstAttribute="top" secondItem="ld4-8K-Fab" secondAttribute="bottom" constant="8" id="aWU-Ed-VCf"/>
+                            <constraint firstItem="IPA-eN-Z4l" firstAttribute="top" secondItem="stB-aF-7rD" secondAttribute="bottom" constant="13" id="bdd-Ir-LVV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GdS-oV-3Cn" secondAttribute="bottom" constant="204" id="dOS-k5-wNx"/>
                             <constraint firstItem="iuh-wr-5SI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="gty-X7-b2m"/>
                             <constraint firstItem="FRf-7P-sZe" firstAttribute="leading" secondItem="iuh-wr-5SI" secondAttribute="trailing" constant="15" id="hfu-3g-K6E"/>
+                            <constraint firstItem="stB-aF-7rD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lo7-HZ-cVe"/>
                             <constraint firstItem="FRf-7P-sZe" firstAttribute="top" secondItem="fI1-v8-eIH" secondAttribute="bottom" constant="1" id="p7L-Ze-dXj"/>
                             <constraint firstItem="iuh-wr-5SI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="r4V-j3-gv6"/>
                             <constraint firstItem="QWa-Lq-NIM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wP0-Xb-Uui"/>
@@ -140,6 +149,7 @@
                         <outlet property="singerLabel" destination="QWa-Lq-NIM" id="Uhk-pa-9TJ"/>
                         <outlet property="songThumbnailImage" destination="iuh-wr-5SI" id="YeV-l4-5EO"/>
                         <outlet property="songTitleLabel" destination="wat-U1-tQP" id="OSy-B5-Mdk"/>
+                        <outlet property="webViewErrorMessageLabel" destination="stB-aF-7rD" id="UKE-pR-idU"/>
                         <outlet property="youtubeMovieWebView" destination="i2K-Zg-AEU" id="DIl-6t-Ji3"/>
                     </connections>
                 </viewController>

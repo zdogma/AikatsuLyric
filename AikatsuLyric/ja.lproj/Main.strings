@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Scene"; ObjectID = "FRf-7P-sZe"; */
+"FRf-7P-sZe.text" = "Scene";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "GdS-oV-3Cn"; */
+"GdS-oV-3Cn.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Singer"; ObjectID = "QWa-Lq-NIM"; */
+"QWa-Lq-NIM.text" = "Singer";
+
+/* Class = "UINavigationItem"; title = "アイカツ! 曲リスト"; ObjectID = "Tdq-7b-r1K"; */
+"Tdq-7b-r1K.title" = "アイカツ! 曲リスト";
+
+/* Class = "UILabel"; text = "曲名"; ObjectID = "bwO-LL-5ji"; */
+"bwO-LL-5ji.text" = "曲名";
+
+/* Class = "UILabel"; text = "関連動画"; ObjectID = "ld4-8K-Fab"; */
+"ld4-8K-Fab.text" = "関連動画";
+
+/* Class = "UILabel"; text = "シリーズ名 - シーン名"; ObjectID = "mHq-SF-dCR"; */
+"mHq-SF-dCR.text" = "シリーズ名 - シーン名";
+
+/* Class = "UILabel"; text = "Song Title"; ObjectID = "wat-U1-tQP"; */
+"wat-U1-tQP.text" = "Song Title";

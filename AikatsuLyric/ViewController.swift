@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var singerLabel: UILabel!
     @IBOutlet weak var youtubeMovieWebView: UIWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var webViewErrorMessageLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
         activityIndicator.hidesWhenStopped = true
         youtubeMovieWebView.delegate = self
+        webViewErrorMessageLabel.text = ""
 
         songTitleLabel.text = song.title
         lyricTextView.text = song.text
@@ -63,6 +65,11 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     func webViewDidStartLoad(_ webView: UIWebView) {
         activityIndicator.startAnimating()
+    }
+
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        webViewErrorMessageLabel.text = error.localizedDescription
+        activityIndicator.stopAnimating()
     }
 
     override func didReceiveMemoryWarning() {
