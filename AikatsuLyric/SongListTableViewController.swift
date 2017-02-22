@@ -55,8 +55,8 @@ class SongListTableViewController: UITableViewController {
         if segue.identifier == "showSongPage" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let song = songs[(indexPath as NSIndexPath).row]
-                if let nextViewController = segue.destination as? ViewController {
-                    nextViewController.song = song
+                if let destinationViewController = segue.destination as? ViewController {
+                    destinationViewController.song = song
                 }
             }
         }
