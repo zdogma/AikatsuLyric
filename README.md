@@ -7,7 +7,7 @@ AikatsuLyric
 
 | 曲一覧 | 曲詳細 |
 | ------ | ------ |
-| ![image](https://cloud.githubusercontent.com/assets/1973683/23093353/e8d6bdee-f623-11e6-9e3c-ed0f0d49478e.png) | ![image](https://cloud.githubusercontent.com/assets/1973683/23093356/f2c642ca-f623-11e6-8a44-5736ec57e7e2.png) |
+|![image](https://cloud.githubusercontent.com/assets/1973683/23117912/4fa622cc-f795-11e6-974a-998b90ec21db.png)  | ![image](https://cloud.githubusercontent.com/assets/1973683/23093356/f2c642ca-f623-11e6-8a44-5736ec57e7e2.png) |
 
 
 ## Install
