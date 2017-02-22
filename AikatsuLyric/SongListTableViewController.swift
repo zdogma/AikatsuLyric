@@ -71,7 +71,4 @@ class SongListTableViewController: UITableViewController {
     enum JsonError: Error {
         case importFailed
     }
-    enum TableViewError: Error {
-        case buildCellFailed
-    }
 }
