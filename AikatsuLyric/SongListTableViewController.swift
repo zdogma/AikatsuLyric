@@ -12,6 +12,7 @@ import SwiftyJSON
 import UIKit
 
 class SongListTableViewController: UITableViewController {
+    typealias JSONObject = [String: Any]
 
     var songs: [Song] = []
 
@@ -24,7 +25,7 @@ class SongListTableViewController: UITableViewController {
             songs = try loadSongs()
         } catch {
             // 復帰不可のため、ポップアップでアプリ再起動を促す
-            SCLAlertView().showError("読み込みエラー", subTitle: "アプリを再度立ち上げ直してください。")
+            SCLAlertView().showError("読み込みエラー", subTitle: "アプリを再起動してください。")
         }
     }
 
@@ -37,7 +38,11 @@ class SongListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongListTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath)
+            as? SongListTableViewCell else {
+
+            abort() // Identifier の定義が誤っている場合に検知のために落とす
+        }
         let song = songs[(indexPath as NSIndexPath).row]
         cell.apply(song: song)
 
@@ -50,25 +55,27 @@ class SongListTableViewController: UITableViewController {
         if segue.identifier == "showSongPage" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let song = songs[(indexPath as NSIndexPath).row]
-                (segue.destination as! ViewController).song = song
+                if let nextViewController = segue.destination as? ViewController {
+                    nextViewController.song = song
+                }
             }
         }
     }
 
     func loadSongs() throws -> [Song] {
-        if let path = Bundle.main.path(forResource: "aikatsu_songs", ofType: "json"),
-           let json_data = FileManager.default.contents(atPath: path) {
-            let json = try JSONSerialization.jsonObject(
+        guard let path = Bundle.main.path(forResource: "aikatsu_songs", ofType: "json"),
+              let json_data = FileManager.default.contents(atPath: path),
+              let json = try JSONSerialization.jsonObject(
                 with: json_data,
                 options: JSONSerialization.ReadingOptions.allowFragments
-            ) as! [[String: Any]]
-            return try Mapper<Song>().mapArray(JSONArray: json)
-        } else {
-            throw JsonError.importFailed
+              ) as? [JSONObject]
+        else {
+            throw JSONError.importFailed
         }
+        return try Mapper<Song>().mapArray(JSONArray: json)
     }
 
-    enum JsonError: Error {
+    enum JSONError: Error {
         case importFailed
     }
 }
