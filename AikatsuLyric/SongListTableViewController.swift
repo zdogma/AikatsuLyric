@@ -37,13 +37,9 @@ class SongListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongListTableViewCell
         let song = songs[(indexPath as NSIndexPath).row]
-
-        let detailText = song.series + " - " + song.scene
-
-        cell.textLabel?.text = song.title
-        cell.detailTextLabel?.text = detailText
+        cell.apply(song: song)
 
         return cell
     }
@@ -68,12 +64,14 @@ class SongListTableViewController: UITableViewController {
             ) as! [[String: Any]]
             return try Mapper<Song>().mapArray(JSONArray: json)
         } else {
-            throw CustomError.jsonImportFailed
+            throw JsonError.importFailed
         }
     }
 
-    enum CustomError: Error {
-        case jsonImportFailed
-        case songsImportFailed
+    enum JsonError: Error {
+        case importFailed
+    }
+    enum TableViewError: Error {
+        case buildCellFailed
     }
 }
