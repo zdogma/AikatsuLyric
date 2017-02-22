@@ -29,6 +29,8 @@ class SongListTableViewCell: UITableViewCell {
         if let url = URL(string: song.thumbnailUrl) {
             let placeholderImage = #imageLiteral(resourceName: "NoImage")
             thumbnailImageView.kf.setImage(with: url, placeholder: placeholderImage)
+        } else {
+            thumbnailImageView.image = #imageLiteral(resourceName: "NoImage")
         }
     }
 }
