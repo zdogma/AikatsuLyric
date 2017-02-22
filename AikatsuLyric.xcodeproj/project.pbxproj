@@ -14,6 +14,7 @@
 		341AACF41E52D6ED00D04AF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341AACF31E52D6ED00D04AF9 /* Assets.xcassets */; };
 		341AACF71E52D6ED00D04AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341AACF51E52D6ED00D04AF9 /* LaunchScreen.storyboard */; };
 		341AACFF1E52D8E800D04AF9 /* SongListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341AACFE1E52D8E800D04AF9 /* SongListTableViewController.swift */; };
+		3422CA5A1E5C07EF00DF8BC1 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422CA591E5C07EF00DF8BC1 /* Song.swift */; };
 		34C773771E53E8F600966F36 /* aikatsu_songs.json in Resources */ = {isa = PBXBuildFile; fileRef = 34C773761E53E8F600966F36 /* aikatsu_songs.json */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		341AACF61E52D6ED00D04AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		341AACF81E52D6ED00D04AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		341AACFE1E52D8E800D04AF9 /* SongListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListTableViewController.swift; sourceTree = "<group>"; };
+		3422CA591E5C07EF00DF8BC1 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		34C773761E53E8F600966F36 /* aikatsu_songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = aikatsu_songs.json; sourceTree = "<group>"; };
 		3550AEE2AC88E9096FE882B6 /* Pods_AikatsuLyric.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AikatsuLyric.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F23B35A71BFFD3A725A46F /* Pods-AikatsuLyric.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AikatsuLyric.release.xcconfig"; path = "Pods/Target Support Files/Pods-AikatsuLyric/Pods-AikatsuLyric.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				341AACEC1E52D6ED00D04AF9 /* AppDelegate.swift */,
 				341AACEE1E52D6ED00D04AF9 /* ViewController.swift */,
 				341AACF01E52D6ED00D04AF9 /* Main.storyboard */,
+				3422CA591E5C07EF00DF8BC1 /* Song.swift */,
 				341AACF31E52D6ED00D04AF9 /* Assets.xcassets */,
 				341AACF51E52D6ED00D04AF9 /* LaunchScreen.storyboard */,
 				341AACF81E52D6ED00D04AF9 /* Info.plist */,
@@ -107,6 +110,7 @@
 				341AACE71E52D6ED00D04AF9 /* Resources */,
 				4E717FDBD77E2BAEC6F742C5 /* [CP] Embed Pods Frameworks */,
 				5B9B8DEED1A50A5799E11E57 /* [CP] Copy Pods Resources */,
+				344E55561E5BF401007980D3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -130,6 +134,7 @@
 					341AACE81E52D6ED00D04AF9 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = UHB4CBC373;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -182,6 +187,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		344E55561E5BF401007980D3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		4E717FDBD77E2BAEC6F742C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3422CA5A1E5C07EF00DF8BC1 /* Song.swift in Sources */,
 				341AACFF1E52D8E800D04AF9 /* SongListTableViewController.swift in Sources */,
 				341AACEF1E52D6ED00D04AF9 /* ViewController.swift in Sources */,
 				341AACED1E52D6ED00D04AF9 /* AppDelegate.swift in Sources */,
@@ -342,6 +361,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2997C005D1B2F0B0E8A989E5 /* Pods-AikatsuLyric.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UHB4CBC373;
 				INFOPLIST_FILE = AikatsuLyric/Info.plist;
@@ -357,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84F23B35A71BFFD3A725A46F /* Pods-AikatsuLyric.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UHB4CBC373;
 				INFOPLIST_FILE = AikatsuLyric/Info.plist;
