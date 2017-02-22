@@ -6,19 +6,12 @@
 //  Copyright © 2017年 Tomohiro Zoda. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 class ViewController: UIViewController, UIWebViewDelegate {
 
-    var data: (
-        title: String,
-        text: String,
-        thumbnail_url: String,
-        series: String,
-        scene: String,
-        singer: String,
-        embed_movie_src: String
-    )?
+    var song: Song!
 
     @IBOutlet weak var songTitleLabel: UILabel!
     @IBOutlet weak var lyricTextView: UITextView!
@@ -31,59 +24,48 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 
         self.automaticallyAdjustsScrollViewInsets = false
 
         activityIndicator.hidesWhenStopped = true
         youtubeMovieWebView.delegate = self
 
-        songTitleLabel.text = data!.title
-        lyricTextView.text = data!.text
-        seriesLabel.text = data!.series
-        sceneLabel.text = data!.scene
-        singerLabel.text = data!.singer
-        
+        songTitleLabel.text = song.title
+        lyricTextView.text = song.text
+        seriesLabel.text = song.series
+        sceneLabel.text = song.scene
+        singerLabel.text = song.singer
+
         // サムネイル画像
-        if !data!.thumbnail_url.isEmpty {
-            let configuration = URLSessionConfiguration.default
-            let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
-            
-            let url = NSURL(string: data!.thumbnail_url)
-            let request = NSURLRequest(url: url as! URL)
-            
-            session.dataTask(with: request as URLRequest, completionHandler: {
-                (data, response, err) in
-                
-                let image = UIImage(data: data!)
-                self.songThumbnailImage.image = image
-            })
+        if let url = URL(string: song.thumbnailUrl) {
+            let placeholderImage = #imageLiteral(resourceName: "NoImage")
+            self.songThumbnailImage.kf.setImage(with: url, placeholder: placeholderImage)
         }
-        
+
         // Youtube動画
-        if !data!.embed_movie_src.isEmpty {
-            let url = NSURL(string: data!.embed_movie_src)
-            let request = NSURLRequest(url: url! as URL)
-            
+        if let srcUrl = URL(string: song.embedMovieSrc) {
+            let request = URLRequest(url: srcUrl)
             self.youtubeMovieWebView.loadRequest(request as URLRequest)
         }
     }
-    private func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    internal func webView(
+        _ webView: UIWebView,
+        shouldStartLoadWith request: URLRequest,
+        navigationType: UIWebViewNavigationType
+    ) -> Bool {
         activityIndicator.startAnimating()
         return true
     }
-    
+
     func webViewDidFinishLoad(_ webView: UIWebView) {
         activityIndicator.stopAnimating()
     }
-    
+
     func webViewDidStartLoad(_ webView: UIWebView) {
         activityIndicator.startAnimating()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
-
